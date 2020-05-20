@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function deleteu(){
+	let uform = document.getElementById("uform");
+	
+	var myInit = {
+			method: 'GET',
+			mode: 'cors',
+			cache: 'default'
+	};
+	
+	fetch('/FTT-JavaWeb', myInit)
+	.then(function(response){
+		return response.text;
+	})
+	.then(function(txt){
+		document.getElementById('uinfo').innerHTML = txt;
+	})
+}
+</script>
+</head>
+<body>
+<!-- <form method="get" action="/FTT-JavaWeb/WebApi"> -->
+<form id="uform">
+<p>
+<label>ID: </label>
+<input type="number" name="uid">
+<p>
+<label>User: </label>
+<input type="text" name="uname">
+</p>
+<button onclick="deleteu()">Delete</button>
+</form>
+<pre id="uinfo"></pre>
+</body>
+</html>

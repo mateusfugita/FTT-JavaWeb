@@ -51,6 +51,8 @@ public class WebApi extends HttpServlet {
 		
 		response.setContentType("text/plain");
 		
+		System.out.println("Passei no GET");
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath()).append(" - ")
 				.append(new Date().toString()).append(" uname: ").append(uname)
 				.append(" uid: ").append(uid);
@@ -61,6 +63,7 @@ public class WebApi extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("Passei no Post");
 		doGet(request, response);
 	}
 
@@ -69,6 +72,9 @@ public class WebApi extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("application/JSON");
+		response.getWriter().append("{\"status\":\"deleted\"}");
+		System.out.println("Passei no DELETE");
 	}
 
 	/**
